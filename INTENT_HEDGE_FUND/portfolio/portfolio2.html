@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Ahbab | Founder of INTENT HEDGE FUND</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4169E1;
+            --primary-dark: #2a4fcc;
+            --secondary: #FF6B6B;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--darker) 0%, rgba(65, 105, 225, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            display: block;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            color: #aaa;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            font-size: 1.1rem;
+            margin-right: 15px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        /* Skills Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-card {
+            background: rgba(30, 30, 30, 0.7);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(65, 105, 225, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-card p {
+            color: #aaa;
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, var(--darker) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(20, 20, 20, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(30, 30, 30, 0.9);
+            border-color: rgba(65, 105, 225, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .service-card h3 i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.8rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech {
+            background: rgba(65, 105, 225, 0.2);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--primary);
+        }
+
+        .project-links a i {
+            margin-right: 5px;
+        }
+
+        /* Blog Section */
+        .blog {
+            background: linear-gradient(135deg, var(--darker) 0%, rgba(10, 10, 10, 0.9) 100%);
+        }
+
+        .blog-content {
+            background: rgba(20, 20, 20, 0.7);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-post {
+            margin-bottom: 40px;
+        }
+
+        .blog-post h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .blog-post h3:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            height: 60%;
+            width: 5px;
+            background-color: var(--primary);
+        }
+
+        .blog-post p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.2rem;
+            padding: 25px;
+            background: rgba(65, 105, 225, 0.1);
+            border-left: 4px solid var(--primary);
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #aaa;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 1.8rem;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            font-size: 1.1rem;
+        }
+
+        .footer-content a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero {
+                padding-top: 100px;
+                height: auto;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+                padding: 50px 0;
+            }
+            
+            .hero-image {
+                position: relative;
+                width: 80%;
+                margin: 0 auto;
+                transform: none;
+                top: 0;
+                margin-top: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                background: var(--darker);
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .blog-content {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                display: block;
+                margin: 15px auto;
+                width: 80%;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .project-card {
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">Mohd<span>Ahbab</span></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mohd Ahbab <span>Founder of INTENT HEDGE FUND</span></h1>
+                <p class="tagline">Copywriter | Ecommerce Enthusiast | Personal Brand Builder</p>
+                <p>I'm dedicated to entrepreneurship and building a personal brand that resonates globally. With expertise in digital content creation and strategic communication, I help businesses thrive in the digital landscape.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Get in Touch</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Placeholder for image - replace with your actual image -->
+            <img src="ahbab.png" alt="Mohd Ahbab">
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Expertise</h2>
+                <p>I specialize in creating compelling content and communication strategies that drive engagement and conversions</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Copywriting</h3>
+                    <p>Crafting persuasive and engaging copy that converts readers into customers.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Email Marketing</h3>
+                    <p>Creating high-converting email sequences that build relationships and drive sales.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Content Writing</h3>
+                    <p>Developing valuable content that establishes authority and engages audiences.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Strategic Communication</h3>
+                    <p>Creating messaging frameworks that align with business objectives.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Building responsive websites using HTML, CSS and JavaScript.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Chatbot Development</h3>
+                    <p>Creating AI-powered chatbots that enhance customer experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>INTENT HEDGE FUND Services</h2>
+                <p>Comprehensive digital solutions to elevate your brand and accelerate growth</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-globe"></i> Website Development</h3>
+                    <p>Custom websites designed to convert visitors into customers with responsive design and optimized user experience.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-bullhorn"></i> Digital Advertising</h3>
+                    <p>Strategic ad campaigns across platforms to reach your target audience and maximize ROI.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-palette"></i> Graphic Design</h3>
+                    <p>Eye-catching posters, banners, and visual content that communicates your brand message effectively.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-video"></i> Video Production</h3>
+                    <p>Engaging video content and reels that tell your brand story and captivate your audience.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-keyboard"></i> Copywriting</h3>
+                    <p>Persuasive copy that sells your products, services, and brand story across all platforms.</p>
+                </div>
+                <div class="service-card">
+                    <h3><i class="fas fa-file-signature"></i> Content Strategy</h3>
+                    <p>Comprehensive content plans that position your brand as an industry authority and drive organic growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Explore some of my recent work and entrepreneurial ventures</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" alt="INTENT HEDGE FUND">
+                    </div>
+                    <div class="project-content">
+                        <h3>INTENT HEDGE FUND</h3>
+                        <p>A comprehensive digital solutions agency offering website development, content creation, and marketing services to help businesses thrive online.</p>
+                        <div class="tech-stack">
+                            <span class="tech">Entrepreneurship</span>
+                            <span class="tech">Digital Marketing</span>
+                            <span class="tech">Brand Strategy</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="TODOS UNIDOS">
+                    </div>
+                    <div class="project-content">
+                        <h3>TODOS UNIDOS</h3>
+                        <p>A collaborative platform connecting entrepreneurs and creatives to build innovative solutions for community challenges.</p>
+                        <div class="tech-stack">
+                            <span class="tech">HTML/CSS</span>
+                            <span class="tech">Community Building</span>
+                            <span class="tech">Collaboration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Portfolio Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio</h3>
+                        <p>A responsive portfolio website showcasing my skills, projects, and professional journey as an entrepreneur.</p>
+                        <div class="tech-stack">
+                            <span class="tech">HTML</span>
+                            <span class="tech">CSS</span>
+                            <span class="tech">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+                            <a href="https://github.com/Ahbab905/my_information"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog" id="blog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entrepreneurial Insights</h2>
+                <p>Thoughts on entrepreneurship, branding, and digital innovation</p>
+            </div>
+            <div class="blog-content">
+                <div class="blog-post">
+                    <h3>The Vision Behind INTENT HEDGE FUND</h3>
+                    <p>INTENT HEDGE FUND was born from a passion for empowering businesses in the digital age. I recognized that many companies struggle to navigate the rapidly evolving digital landscape, often lacking the strategic direction needed to thrive online. Our mission is to provide comprehensive digital solutions that not only solve immediate challenges but also position businesses for long-term success.</p>
+                    <p>What sets INTENT HEDGE FUND apart is our holistic approach. We don't just build websites or create content - we develop integrated digital ecosystems where every element works together to achieve business objectives. From the initial brand strategy to the final implementation, we ensure that every digital touchpoint reinforces your brand message and drives measurable results.</p>
+                </div>
+                <div class="blog-post">
+                    <h3>The Entrepreneurial Journey</h3>
+                    <p>Entrepreneurship is more than starting a business - it's a mindset, a way of approaching challenges, and a commitment to creating value where others see obstacles. My journey as an entrepreneur has taught me that resilience and adaptability are the most valuable traits any business founder can cultivate.</p>
+                    <p>The path of entrepreneurship is rarely linear. It's filled with unexpected turns, challenges that test your resolve, and moments of doubt. But it's in these moments that true growth happens. Every setback is an opportunity to learn, pivot, and come back stronger. The most successful entrepreneurs aren't those who avoid failure, but those who learn to navigate it with grace and determination.</p>
+                    <div class="quote">
+                        "Entrepreneurship is living a few years of your life like most people won't, so you can spend the rest of your life like most people can't."
+                    </div>
+                </div>
+                <div class="blog-post">
+                    <h3>Building a Personal Brand in the Digital Age</h3>
+                    <p>In today's connected world, your personal brand is your most valuable asset. It's no longer enough to be skilled at what you do - you need to communicate your value and build authentic connections with your audience. A strong personal brand opens doors, builds trust, and creates opportunities that wouldn't otherwise exist.</p>
+                    <p>The key to personal branding is consistency and authenticity. Show up regularly with valuable content that showcases your expertise, but always remain true to your core values and personality. People connect with people, not polished personas. Share your journey, your challenges, and your insights - this vulnerability builds genuine relationships that form the foundation of a powerful personal brand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or want to discuss how I can help your business? Let's connect!</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:ahbabgada905@gmail.com">ahbabgada905@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Phone</h3>
+                    <a href="tel:+918979956377">+91 8979956377</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <span>India</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="www.linkedin.com/in/mohd-ahbab-589b66294" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/Ahbab905" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Mohd Ahbab. All Rights Reserved. | Founder of <a href="#">INTENT HEDGE FUND</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'var(--darker)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.2)';
+            }
+        });
+    </script>
+</body>
+</html>
